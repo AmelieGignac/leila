@@ -57,8 +57,8 @@
           }
         ?>
         <nav class="i18n">
-          <a href="?langue=fr" class="actif" title="Français">fr</a>
-          <a href="?langue=en" title="English">en</a>
+          <a href="?langue=fr" class="<?php if($langueChoisie == 'fr') { echo 'actif'; } ?>" title="Français">fr</a>
+          <a href="?langue=en" class="<?php if($langueChoisie == 'en') { echo 'actif'; } ?>" title="English">en</a>
           <!-- <a href="?langue=it" title="Italiano">it</a> -->
         </nav>
       </div>

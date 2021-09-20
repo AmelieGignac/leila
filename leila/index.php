@@ -15,6 +15,7 @@
   include('inclusions/pied2page.php');
 ?>
 
-<!-- E:\ecole\logiciels\php8010\php -S 127.0.0.1:81 -->
+<!-- E:\ecole\logiciels\php8010\php -S 127.0.0.1:81  MAIS  sur bash E:/ecole/logiciels/php8010/php -S 127.0.0.1:81 -->
+<!-- ctl c pour arreter le serveur -->
 <!-- Pour ouvrir les raccourcis -> engrenage -> User snippets -> html -->
 <!-- git init est utilisé pour surveiller un dossier -->
