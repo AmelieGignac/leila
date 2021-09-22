@@ -1,21 +1,29 @@
 <?php
-  // Tests 
-  /* echo $langueChoisie;
-  echo 'Voici le tableau $_GET';
-  echo '<hr>';
-  print_r($_GET);
-  echo '<hr>';*/
+  /*$nomsLangues = [
+    "fr" => 'Français',
+    ""
+  ]*/
+
+  //Déterminier les langues disponibles sur le site
+  $contenuTextes = scandir('textes');
+  $languesDispo = [];
+  foreach ($contenuTextes as $nomDossier) {
+    if($nomDossier != '.' && $nomDossier != '..'){
+      //array_push($languesDispo, $nomDossier); mm résultat qu'en bas
+      $languesDispo[] = $nomDossier; //meilleure façon
+    }
+  }
 
   // 1- Commencer par définir la langue par défaut
   $langueChoisie = 'fr';
 
   // 2 - Vérifier s'il y a un choix de langue déjà fait
-  if(isset($_COOKIE['leila_langue'])){
+  if(isset($_COOKIE['leila_langue']) && in_array($_COOKIE['leila_langue'], $languesDispo)) {
     $langueChoisie = $_COOKIE['leila_langue'];
   }
 
   // 3- Déterminer le choix (si yen a un) de langue explicitement fait par l'utilisateur
-  if(isset($_GET['langue'])){
+  if(isset($_GET['langue']) && in_array($_GET['langue'], $languesDispo)) {
     $langueChoisie = $_GET['langue'];
 
     //Retenir ce choix dans un cookie
@@ -56,23 +64,22 @@
         <?php
           }
         ?>
+
         <nav class="i18n">
-          <a href="?langue=fr" class="<?php if($langueChoisie == 'fr') { echo 'actif'; } ?>" title="Français">fr</a>
-          <a href="?langue=en" class="<?php if($langueChoisie == 'en') { echo 'actif'; } ?>" title="English">en</a>
-          <!-- <a href="?langue=it" title="Italiano">it</a> -->
+          <?php foreach($languesDispo as $codeLangue) { ?>
+            <a href="?langue=<?= $codeLangue; ?>" class="<?php if($langueChoisie == $codeLangue) { echo 'actif'; } ?>" title="<?= $nomsLangues[$codeLangue]; ?>"><?= $codeLangue; ?></a>
+          <?php } ?>
         </nav>
+
       </div>
       <div class="titre-page">
         <h1><?= strtoupper($meta[$page]['h1']); ?></h1>
 
+        <!-- inclure seulement dans la page d'accueil -->
         <?php if ($page == 'accueil') { ?>
-          <h3><?= $ent_sousTitre; ?></h3>
+          <h3><?= $en_sousTitre; ?></h3>
         <?php } ?>
         
-        <!-- inclure seulement dans la page d'accueil -->
-        <?php if($page == 'accueil') { ?>
-          <h3><?php echo $en_sousTitre; ?></h3>
-        <?php } ?>
       </div>
       <?php if($page == 'accueil') { ?>
         <div class="info-utile">

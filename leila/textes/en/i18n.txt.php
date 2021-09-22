@@ -2,11 +2,30 @@
 //i18n - textes du site du restaurants
 
 //méta informations de la page
-$titre = [
+/*$titre = [
     "accueil" => "Welcome",
     "vins" => "Wine list",
     "menu" => "Menu"
+];*/
+
+$meta = [
+    'accueil'   =>  [
+                        'titre' =>  "Welcome",
+                        'desc'  =>  "Leila Restaurant - Montreal",
+                        'h1'    =>  "Leila"
+                    ],
+    'vins'      =>  [
+                        'titre' =>  "Wine List",
+                        'desc'  =>  "Leila restaurant wine list in Montreal. Varied menu, including privately imported wines selected by our sommelier.",
+                        'h1'    =>  "Wines"
+                    ],
+    'menu'      =>  [
+                        'titre' =>  "Menu",
+                        'desc'  =>  "Leila restaurant menu in Montreal. An eclectic and refined menu, combining creativity and tradition. Local products and specialties from Quebec.",
+                        'h1'    =>  "Menu"
+                    ]
 ];
+
 
 //Entete
 $en_sousTitre = "BISTRONOMIC CUISINE";
