@@ -14,9 +14,6 @@ $description = [
     "menu" => ""
 ];*/
 
-// !!!!!!!!!!!! TRUC DU PROF !!!!!!!!!!!!!!! + changer dans entete
-
-
 $meta = [
     'accueil'   =>  [
                         'titre' =>  "Bienvenue",

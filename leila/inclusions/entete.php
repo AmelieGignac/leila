@@ -73,7 +73,7 @@
 
       </div>
       <div class="titre-page">
-        <h1><?= strtoupper($meta[$page]['h1']); ?></h1>
+        <h1><?= strtoupper($meta[$page]['h1']); ?></h1> <!-- fct pour mettre tout en maj -->
 
         <!-- inclure seulement dans la page d'accueil -->
         <?php if ($page == 'accueil') { ?>
