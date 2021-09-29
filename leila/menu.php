@@ -4,6 +4,25 @@
   
   //inclure l'entete communne ici
   include('inclusions/entete.php');
+
+  //choisir une citation aléatoire du fichier citation-menu selon la langue choisie sur le site
+  //placer cette commande après l'inclusion de l'entete pour avoir accès a la variable langueChoisie
+
+  // 1. lire le fichier json dans une chaine de charactères
+  $citationsChaineJson = file_get_contents('data/citations-menu.json');
+  //echo $citationsChaineJson;
+
+  // 2. transformer la chaine json en tableau php
+  $citations = json_decode($citationsChaineJson, true);
+
+  // 3. selectionner les citations dans la langue choisie
+  $citationsLangueChoisie = $citations[$langueChoisie];
+
+  // 4. selectionner une citation aléatoire
+  $positionAleatoire = array_rand($citationsLangueChoisie);
+  $citatonAleatoire = $citationsLangueChoisie[$positionAleatoire];
+  print_r($citatonAleatoire);
+
 ?>
     <div class="contenu-principal">
       <div class="citation">
