@@ -1,8 +1,10 @@
 <?php
-  /*$nomsLangues = [
+  //jpense jai manquer un détail (+ligne 70)
+  $nomsLangues = [
     "fr" => 'Français',
-    ""
-  ]*/
+    "en" => 'English',
+    "ru" => 'Whatever'
+  ];
 
   //Déterminier les langues disponibles sur le site
   $contenuTextes = scandir('textes');
