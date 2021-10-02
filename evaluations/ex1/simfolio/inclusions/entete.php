@@ -53,7 +53,7 @@
             <h1 class="logo"><?= $en_nom; ?></h1>
         </div>
         <nav>
-            <a href="compte.php"><?= $en_titreCompte; ?></a>    <!-- pas oublier la classe actif -->
+            <a href="compte.php" class="<?php if($page == 'compte') { echo 'actif'; } ?>"><?= $en_titreCompte; ?></a>
             <a href="#"><?= $en_propos; ?></a>
         </nav>
     </header>
