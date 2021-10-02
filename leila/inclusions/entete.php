@@ -6,7 +6,7 @@
     "ru" => 'Whatever'
   ];
 
-  //Déterminier les langues disponibles sur le site
+  //Déterminer les langues disponibles sur le site
   $contenuTextes = scandir('textes');
   $languesDispo = [];
   foreach ($contenuTextes as $nomDossier) {
@@ -75,7 +75,7 @@
 
       </div>
       <div class="titre-page">
-        <h1><?= strtoupper($meta[$page]['h1']); ?></h1> <!-- fct pour mettre tout en maj -->
+        <h1><?= strtoupper($meta[$page]['h1']); ?></h1> <!-- fonction pour mettre tout en maj -->
 
         <!-- inclure seulement dans la page d'accueil -->
         <?php if ($page == 'accueil') { ?>

@@ -1,14 +1,38 @@
 <?php
-    //langue par défaut
-    $langueChoisie = 'fr';
+    //Nommer les langues dans leurs langues respectives
+    $nomsLangues = [
+        "fr" => 'Français',
+        "en" => 'English',
+        "ko" => '한국어'
+    ];
 
-    //voir si le choix de langue a déjà été fait
+    //Mettre les langues disponibles dans un tableau
+    $contenuTextes = scandir('textes');
+    $languesDispo = [];
+    foreach ($contenuTextes as $nomDossier) {
+        if($nomDossier != '.' && $nomDossier != '..'){
+            $languesDispo[] = $nomDossier;
+        }
+    }
+
+    //Choisir une langue par défaut
+    $langueDefaut = 'fr';
+
+    //voir si un choix de langue à déjà été fait
     if(isset($_COOKIE['ex1_langue']) && in_array($_COOKIE['ex1_langue'], $languesDispo)) {
-        $langueChoisie = $_COOKIE['ex1_langue'];
-      }
+        $langueDefaut = $_COOKIE['ex1_langue'];
+    }
+
+    //ou si l'utilisateur en choisi une en particulier
+    if(isset($_GET['langue']) && in_array($_GET['langue'], $languesDispo)) {
+        $langueDefaut = $_GET['langue'];
+    
+        //et la retenir dans un cookie
+        setcookie('ex1_langue', $langueDefaut, time() + 365*24*60*60);
+    }
 
     //inclure le fichier dans la bonne langue
-    include('textes/' . $langueChoisie . '/i18n.txt.php');
+    include('textes/' . $langueDefaut . '/i18n.txt.php');
 ?>
 
 <!DOCTYPE html>
