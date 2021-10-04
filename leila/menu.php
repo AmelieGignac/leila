@@ -5,31 +5,19 @@
   //inclure l'entete communne ici
   include('inclusions/entete.php');
 
-  //choisir une citation aléatoire du fichier citation-menu selon la langue choisie sur le site
-  //placer cette commande après l'inclusion de l'entete pour avoir accès a la variable langueChoisie
+  //inclure la librairie de gestion des citations
+  include('lib/citations.lib.php');
 
-  // 1. lire le fichier json dans une chaine de charactères
-  $citationsChaineJson = file_get_contents('data/citations-menu.json');
-  //echo $citationsChaineJson;
-
-  // 2. transformer la chaine json en tableau php
-  $citations = json_decode($citationsChaineJson, true);
-
-  // 3. selectionner les citations dans la langue choisie
-  $citationsLangueChoisie = $citations[$langueChoisie];
-
-  // 4. selectionner une citation aléatoire
-  $positionAleatoire = array_rand($citationsLangueChoisie);
-  $citatonAleatoire = $citationsLangueChoisie[$positionAleatoire];
-  print_r($citatonAleatoire);
+  //faire appel à la fonction ctationAleatoire
+  $citatonAlea = citationAleatoire($page, $langueChoisie);
 
 ?>
     <div class="contenu-principal">
       <div class="citation">
         <img src="images/menu-citation.jpg" alt="">
         <blockquote>
-          Le plus grand outrage que l'on puisse faire à un gourmand, c'est de l'interrompre dans l'exercice de ses mâchoires.
-          <cite>- Alexandre Balthazar Grimod de la Reynière</cite>
+          <?= $citatonAlea['texte']; ?>
+          <cite>- <?= $citatonAlea['auteur']; ?></cite>
         </blockquote>
       </div>
       <div class="carte">
