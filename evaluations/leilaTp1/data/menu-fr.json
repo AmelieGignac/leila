@@ -1,0 +1,19 @@
+{
+    "Entrées": [
+
+    ],
+    "Poissons": [
+        {
+            "nom": "Bar cuit à la vapeur et criste marine",
+            "desc": "déclinaison de riz et coquillages, jus au curcuma",
+            "portion": 2,
+            "prix": 58
+        },
+        {
+            "nom": "",
+            "desc": "",
+            "portion": 2,
+            "prix": 58
+        }
+    ]
+}
